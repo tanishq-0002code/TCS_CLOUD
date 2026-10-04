@@ -144,7 +144,7 @@ fun SecuritySettingsScreen(
                                 },
                                 enabled = canUseBiometric
                             )
-                        
+                        }
                         TextButton(onClick = { showSetPin = true }) {
                             Text("Change PIN")
                         }
