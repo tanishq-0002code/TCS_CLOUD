@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- TDLib database + files -->
+    <files-path
+        name="tdlib"
+        path="tdlib/" />
+    <!-- Cached thumbnails produced by VideoFrameExtractor -->
+    <cache-path
+        name="thumbs"
+        path="thumbs/" />
+    <!-- MediaProcessor output (trimmed / re-scaled clips) -->
+    <cache-path
+        name="media_processed"
+        path="processed/" />
+    <!-- Exported media -->
+    <files-path
+        name="exports"
+        path="exports/" />
+</paths>

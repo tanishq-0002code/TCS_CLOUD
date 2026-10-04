@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TG Cloud Gallery</string>
+
+    <!-- Auth -->
+    <string name="auth_title">Connect Telegram</string>
+    <string name="auth_phone_hint">Phone number</string>
+    <string name="auth_code_hint">Login code</string>
+    <string name="auth_password_hint">Two-step verification password</string>
+    <string name="auth_continue">Continue</string>
+    <string name="auth_resend">Resend code</string>
+    <string name="auth_signing_in">Signing in…</string>
+    <string name="auth_error_invalid_phone">Enter a valid international phone number, e.g. +4915112345678</string>
+    <string name="auth_error_invalid_code">The login code is incorrect</string>
+    <string name="auth_error_phone_used">This phone number is already in use</string>
+    <string name="auth_error_session_expired">Session expired, please sign in again</string>
+</resources>

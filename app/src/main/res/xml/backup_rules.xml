@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Never back up TDLib's key store / database. -->
+    <exclude domain="sharedpref" path="tdlib_keys.xml" />
+    <exclude domain="file" path="tdlib" />
+    <exclude domain="database" path="tdlib" />
+    <!-- Room index is a derived cache and can be rebuilt. -->
+    <exclude domain="database" path="telegram_cloud_gallery.db" />
+</full-backup-content>

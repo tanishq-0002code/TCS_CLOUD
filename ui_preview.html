@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Cloud Gallery - UI Preview</title>
+    <style>
+        :root {
+            --bg: #141218;
+            --surface: #1D1B20;
+            --surface-variant: #49454F;
+            --primary: #D0BCFF;
+            --on-surface: #E6E1E5;
+            --on-surface-variant: #CAC4D0;
+            --outline-variant: #49454F;
+            --error: #F2B8B5;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        body { background: #0F0D13; color: var(--on-surface); padding: 20px; }
+        h1 { text-align: center; margin-bottom: 30px; color: var(--primary); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; max-width: 1600px; margin: 0 auto; }
+        .screen { background: var(--bg); border-radius: 28px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5); height: 720px; display: flex; flex-direction: column; border: 1px solid var(--outline-variant); }
+        .status-bar { height: 30px; background: rgba(0,0,0,0.3); display: flex; justify-content: space-between; align-items: center; padding: 0 20px; font-size: 12px; }
+        .app-bar { height: 56px; background: var(--surface); display: flex; align-items: center; justify-content: space-between; padding: 0 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .title { font-size: 18px; font-weight: 600; }
+        .icons { display: flex; gap: 8px; }
+        .icon-btn { width: 40px; height: 40px; border-radius: 20px; display: flex; align-items: center; justify-content: center; background: transparent; border: none; color: var(--on-surface); cursor: pointer; }
+        .content { flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; }
+        .chip-group { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px 12px; background: var(--surface); border-radius: 12px; }
+        .chip { padding: 4px 12px; background: var(--surface-variant); border-radius: 16px; font-size: 14px; }
+        .chip.active { background: var(--primary); color: #1D192B; }
+        .card { background: var(--surface); border-radius: 16px; padding: 16px; }
+        .progress-bar { height: 4px; background: var(--surface-variant); border-radius: 2px; overflow: hidden; margin: 8px 0; }
+        .progress-fill { height: 100%; background: var(--primary); width: 40%; }
+        .grid-media { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; flex: 1; }
+        .media-card { aspect-ratio: 1; background: linear-gradient(135deg, #2AABEE 0%, #7C4DFF 100%); border-radius: 16px; position: relative; display: flex; flex-direction: column; justify-content: space-between; padding: 8px; }
+        .media-badge { align-self: flex-end; background: rgba(0,0,0,0.5); padding: 4px 8px; border-radius: 8px; font-size: 11px; }
+        .media-label { background: rgba(0,0,0,0.5); padding: 4px 8px; border-radius: 8px; font-size: 12px; align-self: flex-start; }
+        .button { padding: 10px 24px; background: var(--primary); color: #1D192B; border: none; border-radius: 20px; font-weight: 500; cursor: pointer; }
+        .text-button { color: var(--primary); background: none; border: none; padding: 8px 12px; font-weight: 500; }
+        .screen-label { text-align: center; margin-bottom: 10px; font-size: 14px; color: var(--on-surface-variant); }
+        .pin-pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 280px; margin: 0 auto; }
+        .pin-key { height: 56px; background: var(--surface-variant); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+        .pin-dots { display: flex; gap: 12px; justify-content: center; margin: 20px 0; }
+        .dot { width: 12px; height: 12px; border-radius: 6px; background: var(--surface-variant); }
+        .dot.filled { background: var(--primary); }
+        .reels { background: #000; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; }
+        .reel-text { background: rgba(0,0,0,0.6); padding: 16px; border-radius: 12px; text-align: center; }
+        .list-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--outline-variant); }
+        input { background: var(--surface-variant); border: none; border-radius: 4px; padding: 16px; color: var(--on-surface); width: 100%; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h1>Telegram Cloud Gallery - UI Preview</h1>
+    <div class="grid">
+
+        <!-- Gallery Screen -->
+        <div>
+            <div class="screen-label">Gallery</div>
+            <div class="screen">
+                <div class="status-bar"><span>9:41</span><span>100%</span></div>
+                <div class="app-bar">
+                    <div class="title">TG Cloud Gallery</div>
+                    <div class="icons">
+                        <button class="icon-btn">≡</button>
+                        <button class="icon-btn">📁</button>
+                        <button class="icon-btn">⚙</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="chip-group">
+                        <div class="chip active">All Media</div>
+                        <div class="chip">#Vacation</div>
+                        <div class="chip">#Documents</div>
+                        <div class="chip">#Reels</div>
+                    </div>
+                    <div class="card">
+                        <div style="font-weight: 500;">Indexing & Sync</div>
+                        <div class="progress-bar"><div class="progress-fill"></div></div>
+                        <div style="font-size: 12px; color: var(--on-surface-variant);">12/28 files • 4 uploading</div>
+                    </div>
+                    <div class="grid-media">
+                        <div class="media-card"><div class="media-badge">☁</div><div class="media-label">IMG_001.jpg</div></div>
+                        <div class="media-card"><div class="media-badge">▶</div><div class="media-label">reel_trip.mp4 • 9.5s</div></div>
+                        <div class="media-card"><div class="media-badge">▶</div><div class="media-label">Clip.mp4 • 7.2s</div></div>
+                        <div class="media-card"><div class="media-label">Vacation.jpg</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Auth Screen -->
+        <div>
+            <div class="screen-label">Auth (Phone/Code/2FA)</div>
+            <div class="screen">
+                <div class="status-bar"><span>9:41</span><span>100%</span></div>
+                <div class="app-bar"><div class="title">Connect Telegram</div></div>
+                <div class="content" style="justify-content: center; align-items: center;">
+                    <div style="text-align: center; margin-bottom: 24px;">
+                        <div style="font-size: 22px; font-weight: 600; margin-bottom: 8px;">Sign in with Telegram</div>
+                        <div style="font-size: 14px; color: var(--on-surface-variant);">Uses TDLib. Credentials stay on device.</div>
+                    </div>
+                    <div class="card" style="width: 100%;">
+                        <div style="margin-bottom: 20px;">
+                            <div style="font-size: 12px; margin-bottom: 8px; color: var(--on-surface-variant);">Phone number (international)</div>
+                            <input placeholder="+4915112345678" value="+49">
+                        </div>
+                        <div style="display: flex; justify-content: flex-end;"><button class="button">Continue</button></div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; margin-top: 20px;">
+                        <div class="dot filled"></div><div style="width: 24px; height: 2px; background: var(--outline-variant);"></div>
+                        <div class="dot"></div><div style="width: 24px; height: 2px; background: var(--outline-variant);"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lock Screen -->
+        <div>
+            <div class="screen-label">App Lock (PIN + Biometrics)</div>
+            <div class="screen" style="background: linear-gradient(rgba(20,18,24,0.9), rgba(20,18,24,0.95));">
+                <div class="status-bar"><span>9:41</span><span>100%</span></div>
+                <div class="content" style="justify-content: center;">
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">🔒</div>
+                        <div style="font-size: 22px; font-weight: 600; margin-bottom: 8px;">App Locked</div>
+                        <div style="font-size: 14px; color: var(--on-surface-variant); margin-bottom: 24px;">Authenticate to continue</div>
+                        <div class="pin-dots">
+                            <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                        </div>
+                        <div class="pin-pad">
+                            <div class="pin-key">1</div><div class="pin-key">2</div><div class="pin-key">3</div>
+                            <div class="pin-key">4</div><div class="pin-key">5</div><div class="pin-key">6</div>
+                            <div class="pin-key">7</div><div class="pin-key">8</div><div class="pin-key">9</div>
+                            <div class="pin-key">C</div><div class="pin-key">0</div><div class="pin-key">⌫</div>
+                        </div>
+                        <div style="margin-top: 20px;">
+                            <button class="button">Unlock</button>
+                            <div style="margin-top: 8px;"><button class="text-button">Use biometrics instead</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Folders -->
+        <div>
+            <div class="screen-label">Folders & Tags</div>
+            <div class="screen">
+                <div class="status-bar"><span>9:41</span><span>100%</span></div>
+                <div class="app-bar">
+                    <button class="icon-btn">←</button>
+                    <div class="title">Folders & Tags</div>
+                    <div style="width: 40px;"></div>
+                </div>
+                <div class="content">
+                    <div class="card">
+                        <div style="font-weight: 600; margin-bottom: 12px;">Create Virtual Folder</div>
+                        <input placeholder="Folder name" style="margin-bottom: 12px;">
+                        <input placeholder="Map to Telegram chat id (optional)" style="margin-bottom: 12px;">
+                        <button class="button">Create Folder</button>
+                    </div>
+                    <div class="card">
+                        <div style="font-weight: 600; margin-bottom: 8px;">Virtual Folders</div>
+                        <div style="font-size: 14px;">📁 All Media</div>
+                        <div style="font-size: 14px;">🎬 Reels</div>
+                        <div style="font-size: 14px;">📱 On This Device</div>
+                        <div style="font-size: 14px;">☁️ Auto Backup</div>
+                    </div>
+                    <div class="card">
+                        <div style="font-weight: 600; margin-bottom: 8px;">Tags</div>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <div class="chip">#Vacation</div><div class="chip">#Documents</div><div class="chip">#Reels</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sync Settings -->
+        <div>
+            <div class="screen-label">Sync & Auto-Backup</div>
+            <div class="screen">
+                <div class="status-bar"><span>9:41</span><span>100%</span></div>
+                <div class="app-bar">
+                    <button class="icon-btn">←</button>
+                    <div class="title">Sync & Auto-Backup</div>
+                    <div style="width: 40px;"></div>
+                </div>
+                <div class="content">
+                    <div class="card">
+                        <div style="font-weight: 600; margin-bottom: 8px;">Auto Sync</div>
+                        <div class="list-item">
+                            <div>Enable Background Sync</div>
+                            <div style="width: 48px; height: 24px; background: var(--primary); border-radius: 12px; position: relative;">
+                                <div style="width: 20px; height: 20px; background: white; border-radius: 10px; position: absolute; right: 2px; top: 2px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div style="font-weight: 600; margin-bottom: 8px;">Constraints</div>
+                        <div class="list-item"><div>Wi-Fi only</div><div>✓</div></div>
+                        <div class="list-item"><div>Require charging</div><div>✓</div></div>
+                        <div class="list-item"><div>Allow metered</div></div>
+                    </div>
+                    <div class="card">
+                        <div style="font-weight: 600; margin-bottom: 8px;">Sync Interval</div>
+                        <div>4.0 hours</div>
+                        <div style="margin: 12px 0; height: 4px; background: var(--surface-variant); border-radius: 2px;"></div>
+                        <button class="button" style="width: 100%;">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reels -->
+        <div>
+            <div class="screen-label">Reels (Vertical Feed)</div>
+            <div class="screen">
+                <div class="status-bar"><span>9:41</span><span>100%</span></div>
+                <div class="app-bar">
+                    <button class="icon-btn">←</button>
+                    <div class="title">Reels</div>
+                    <div style="width: 40px;"></div>
+                </div>
+                <div class="reels">
+                    <div class="reel-text">
+                        <div style="font-size: 18px; font-weight: 600; margin-bottom: 8px;">Reel 1</div>
+                        <div style="font-size: 14px; opacity: 0.9;">Vertical video with ExoPlayer<br>Memory released when off-screen</div>
+                    </div>
+                    <div style="position: absolute; bottom: 20px; left: 16px; color: white;">
+                        <div style="background: rgba(0,0,0,0.6); padding: 8px 12px; border-radius: 8px;">trip_2026.mp4 • 9.5s</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
